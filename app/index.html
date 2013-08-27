@@ -31,16 +31,21 @@
     <div ng-class="direction">
         <ng-view ng-animate="{enter: 'enter', leave: 'leave'}"></ng-view>
     <div>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+
+    <!-- for working with PhoneGap Builder, we just declare the script but do not adding it -->    
+    <script src="phonegap.js"></script>
+
     <script src="bower_components/jquery/jquery.js"></script>
-     <script src="http://code.angularjs.org/1.1.4/angular.js"></script>
+    <script src="scripts/libs/angular.1.1.4.min.js"></script>
+
 
         <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/services/deviceService.js"></script>
         <script src="scripts/controllers/page1.js"></script>
         <script src="scripts/controllers/page2.js"></script>
         <script src="scripts/directives/mobileButton.js"></script>
