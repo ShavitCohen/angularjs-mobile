@@ -6,7 +6,7 @@
  * @param  {[type]} $timeout  [description]
  * @return {[type]}           [description]
  */
-app.factory('deviceService', function ($q) {
+app.factory('deviceService', function ($q, $rootScope) {
 
 	return{
 		/**
@@ -21,6 +21,17 @@ app.factory('deviceService', function ($q) {
 		    }
 		},
 
+		whenDeviceReady: function(){
+			 var deferred = $q.defer();
+			 if($rootScope.isDevice){
+				 document.addEventListener("deviceready", function () {
+				 	deferred.resolve();
+				 },false)
+				}else{
+ 					deferred.resolve();
+				}
+				return deferred.promis();
+		},
 
 
 		/**
@@ -76,14 +87,13 @@ app.factory('deviceService', function ($q) {
 
 		getUserLang: function(){
 			var deferred = $q.defer();
-			try{
+			if($rootScope.isDevice){
 				  navigator.globalization.getPreferredLanguage(function (lang) {
 				  	deferred.resolve(lang);
 				  });
-	           }catch(ex){
-	           		deferred.reject(ex);
+	           }else{
+	           		deferred.resolve("en");
 	           }
-	          
               return deferred.promise;
 		} 
 
