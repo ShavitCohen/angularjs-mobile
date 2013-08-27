@@ -6,10 +6,8 @@ app.controller('initCtrl', function($scope, $rootScope, $location,deviceService)
   
   //we save this variable in the rootScope in order to use
   $rootScope.isDevice = $scope.deviceService.isDevice();
-
-  if($rootScope.isDevice){
-    $scope.deviceService.whenDeviceReady()
-    .then(function(){
+  var promise = $scope.deviceService.whenDeviceReady();
+    promise.then(function(afadsdf){
       //******************************
       //****** Initialization*********
       //******************************
@@ -20,9 +18,8 @@ app.controller('initCtrl', function($scope, $rootScope, $location,deviceService)
       // then go to the first page
       // 
       $location.path("/one");
+    },function(){
+
     })
-  }else{ // we assume it is a browser and we run the app from a browser
-      $location.path("/one");
-  }
 
 });

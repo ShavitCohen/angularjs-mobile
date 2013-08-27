@@ -6,7 +6,7 @@
  * @param  {[type]} $timeout  [description]
  * @return {[type]}           [description]
  */
-app.factory('deviceService', function ($q, $rootScope) {
+app.factory('deviceService', function ($q, $rootScope,$timeout) {
 
 	return{
 		/**
@@ -23,14 +23,17 @@ app.factory('deviceService', function ($q, $rootScope) {
 
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
+
 			 if($rootScope.isDevice){
 				 document.addEventListener("deviceready", function () {
-				 	deferred.resolve();
+				 	$rootScope.$apply(function(){
+				 		deferred.resolve("aa");	
+				 	});
 				 },false)
 				}else{
- 					deferred.resolve();
-				}
-				return deferred.promis();
+					deferred.resolve("aa");	
+ 				}
+				return deferred.promise;
 		},
 
 
@@ -85,15 +88,18 @@ app.factory('deviceService', function ($q, $rootScope) {
 
 
 
-		getUserLang: function(){
+		getClientLang: function(){
 			var deferred = $q.defer();
 			if($rootScope.isDevice){
 				  navigator.globalization.getPreferredLanguage(function (lang) {
-				  	deferred.resolve(lang);
+				  	$rootScope.$apply(function(){
+				  		deferred.resolve(lang);
+				  	});
 				  });
 	           }else{
 	           		deferred.resolve("en");
 	           }
+	           
               return deferred.promise;
 		} 
 
