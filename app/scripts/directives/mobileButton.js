@@ -7,12 +7,20 @@
         restrict: 'A',
         templateUrl:"views/directivesTemplates/mobileButton.html",
         replace:true,
+        
       
         link: function (scope, elem, attrs) {
            
+
             // we add the button the class given from the view (a-f)
             elem.addClass("ui-btn-up-" + attrs.buttonClass);
 
+
+           if(attrs.text){
+                elem.find(".ui-btn-text").append(attrs.text);
+            }
+
+        
             //no-corners tells to remove the class that makes round corners
             if(attrs.noCorners){
                 elem.removeClass("ui-btn-corner-all");
@@ -33,14 +41,9 @@
             }
 
             //puts the icon on the right
-            if(attrs.iconRight){
+            if(attrs.iconSide){
 
-                elem.addClass("ui-btn-icon-right");
-            }
-
-             //puts the icon on the right
-            if(attrs.iconLeft){
-                elem.addClass("ui-btn-icon-left");
+                elem.addClass("ui-btn-icon-" + attrs.iconSide);
             }
 
             //telling the button to be a no text button - like the settings button
