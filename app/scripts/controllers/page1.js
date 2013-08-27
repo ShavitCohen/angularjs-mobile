@@ -9,4 +9,9 @@ app.controller('page1Ctrl', function($scope, $rootScope, $location) {
   $scope.go = function(path) {
     $location.path(path);
   }
+
+  $scope.header = "Page 1";
+  $scope.content = "Page 1 content";
+  $scope.p = "Page 1 paragraph";
+
 });

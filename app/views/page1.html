@@ -1,4 +1,39 @@
-   <div class="page page1">
-        <b>page 1</b><br><br>
-        <button  ng-click="direction('rtl');go('/two')"  >go page 2</button>
+    <div class="page">
+    <div class="ui-header ui-bar-a" role="banner" data-role="header">
+            <h1 class="ui-title" role="heading" aria-level="1">
+           {{header}}
+
+            </h1>
+
+                <button mobile-button
+                    ng-click="direction('rtl');go('/two')" 
+                    button-class="e"
+                    text="Exit"
+                    float="left"
+                    icon="move"
+                    icon-left
+                    
+                    />
+
+                   <button mobile-button
+                    button-class="e"
+                    text="aaaaa"
+                    float="right"
+                    icon="star"
+                    icon-right
+                    ng-click="direction('rtl');go('/two')" 
+                    />
+
     </div>
+
+
+    <div class="ui-content" role="main">
+        <h3>{{content}}</h3>
+        <p>
+            {{p}}
+        </p>
+    </div>
+    <div class="ui-footer ui-bar-a">
+        <h4 class="ui-title">Footer content</h4>
+    </div>
+</div>
