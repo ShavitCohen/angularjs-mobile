@@ -25,8 +25,11 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 			 var deferred = $q.defer();
 			 if($rootScope.isDevice){
 				var checkDeviceReadyInterval = setInterval(function(){
-					if($("html").attr("deviceReady") == "true"){
+					alert($("body").attr("deviceReady"));
+					if($("body").attr("deviceReady") == "true"){
+						alert("2");
 						window.clearInterval(checkDeviceReadyInterval);
+						alert("3");
 						$rootScope.apply(function(){
 							deferred.resolve();	
 						})
