@@ -28,10 +28,10 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
 			 if($rootScope.isDevice){
-			 /*	 document.addEventListener("deviceready", function(){
+			 	 document.addEventListener("deviceready", function(){
       				deferred.resolve();	
- 				},true);*/
-				deferred.resolve();	 // has to be fixed
+ 				},true);
+				//deferred.resolve();	 // has to be fixed
 			}else{
 				deferred.resolve();	
 			}
@@ -94,6 +94,7 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 			var deferred = $q.defer();
 			if($rootScope.isDevice){
 				  navigator.globalization.getPreferredLanguage(function (lang) {
+				  	console.log("the log ->" + lang);
 				  	$rootScope.$apply(function(){
 				  		deferred.resolve(lang);
 				  	});
