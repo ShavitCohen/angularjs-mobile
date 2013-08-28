@@ -13,14 +13,16 @@ app.controller('page1Ctrl', function($scope, $rootScope, $location,deviceService
   }
 
   $scope.header = "device: " +$scope.deviceService.isDevice();
-  deviceService.getgetClientLang().
+  
+  $scope.clientLang ="";
+
+  $scope.deviceService.getClientLang().
     then(function(lang){
-      $scope.clientLang = lang;
-    })
+      $scope.content = "the client language is: " + lang;
+    });
 
   
   
-  $scope.content = "user language = " + $scope.clientLang;
   $scope.p = "Page 1 paragraph";
 
 });

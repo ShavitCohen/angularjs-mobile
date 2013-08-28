@@ -6,9 +6,11 @@ app.controller('initCtrl', function($scope, $rootScope, $location,deviceService)
   
   //we save this variable in the rootScope in order to use
   $rootScope.isDevice = $scope.deviceService.isDevice();
+
   var deviceReadyPromise = $scope.deviceService.whenDeviceReady();
     deviceReadyPromise.then(function(){
-      scope.deviceService.enableTapEvents();
+      $scope.deviceService.enableTapEvents();
+
       //******************************
       //****** Initialization*********
       //******************************
