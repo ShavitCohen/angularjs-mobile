@@ -97,6 +97,9 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 			if($rootScope.isDevice){
 				  navigator.globalization.getPreferredLanguage(function (lang) {
 				  	$rootScope.$apply(function(){
+				  		for (i in lang){
+				  			console.log(i);
+				  		}
 				  		deferred.resolve(lang.value);
 				  	});
 				  });
