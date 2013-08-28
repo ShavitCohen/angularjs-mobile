@@ -1,7 +1,11 @@
 'use strict';
-
+/*
+	see page1Ctrl for documentation
+ */
 
 app.controller('page2Ctrl', function($scope, $rootScope, $location) {
+
+
   $scope.direction = function(dir) {
     $rootScope.direction = dir;
   }

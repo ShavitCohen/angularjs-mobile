@@ -2,6 +2,20 @@
  * This directive is a mobile button directive, it allows to create a tag with the attribute
  * of "mobile-button" and then it replace it with the tags in the "Views/DirectiveTemplates" folder
  */
+/**
+ * a mobile button directive, it allows to create a tag with the attribute - "mobile-button"
+ * and add further attributes to it,  the attributes available are:
+ * 
+ * text       - set the text of the button
+ * no-corners - determain that the button will have no round corners
+ * float      - determain the float of the button (relevant mostly for headers and footers)
+ * icon       - sets the button icon - use the list available at: http://api.jquerymobile.com/icons/
+ * icon-side  - left or right
+ * no-text    - sets a "no text" button, icon only
+ * 
+ * @param  {[type]} $timeout [description]
+ * @return {[type]}          [description]
+ */
  app.directive('mobileButton', function ($timeout) {
     return {
         restrict: 'A',
