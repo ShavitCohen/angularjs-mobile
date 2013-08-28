@@ -24,18 +24,15 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
 			 if($rootScope.isDevice){
-			 	alert("0");
-				 document.addEventListener("deviceready", function () {
-				 	alert("1");
-				 	$rootScope.$apply(function(){
-				 		alert("3");
+				/* document.addEventListener("deviceready", function () {
+				 	$rootScope.$apply(function(){*/
 				 		deferred.resolve();	
-				 	});
-				 },false)
-				}else{
-				 	deferred.resolve();		
- 				}
-				return deferred.promise;
+				 /*	});
+				 },false)*/
+			}else{
+			 	deferred.resolve();		
+			}  
+			return deferred.promise;
 		},
 
 
