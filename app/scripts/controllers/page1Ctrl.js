@@ -18,11 +18,17 @@ app.controller('page1Ctrl', function($scope, $rootScope, $location,deviceService
 
   $scope.deviceService.getClientLang().
     then(function(lang){
-      $scope.content = "the client language is: " + lang;
+      $scope.content = "the client language is: " +   lang;
     });
 
+    $scope.deviceService.getCurrentPosition().
+    then(function(position){
+      $scope.p = position.coords.latitude + "/" + position.coords.longitude ;
+    },function(ex){  // geolocation error
+      alert("fail");
+    })
   
   
-  $scope.p = "Page 1 paragraph";
+  
 
 });

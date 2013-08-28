@@ -100,15 +100,31 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 			if($rootScope.isDevice){
 				  navigator.globalization.getPreferredLanguage(function (lang) {
 				  	$rootScope.$apply(function(){
-				  		deferred.resolve(lang.value);
+				  		eferred.resolve(lang.value);
 				  	});
 				  });
-	           }else{
-	           		deferred.resolve("en");
-	           }
+           }else{
+           		deferred.resolve("en");
+           }
 
-              return deferred.promise;
-		} 
+          return deferred.promise;
+	},
 
+
+	getCurrentPosition: function(){
+		var deferred = $q.defer();
+		var geoLocationOptions = { maximumAge: 3000, timeout: 30000, enableHighAccuracy: true};
+		
+		navigator.geolocation.getCurrentPosition(function(position){
+			$rootScope.$apply(function(){
+				  		deferred.resolve(position);
+				  	});
+		}, 
+         function(err){
+         	deferred.reject(err);
+         }, geoLocationOptions);
+
+		return deferred.promise;
 	}
-});
+}
+})
