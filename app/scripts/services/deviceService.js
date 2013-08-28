@@ -28,10 +28,9 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
 			 if($rootScope.isDevice){
-			 	alert("sss");
-			 	 document.addEventListener("deviceready", function(){
-      				alert("123");
- 				},true);
+			 /*	 document.addEventListener("deviceready", function(){
+      				deferred.resolve();	
+ 				},true);*/
 				deferred.resolve();	 // has to be fixed
 			}else{
 				deferred.resolve();	
