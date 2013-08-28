@@ -5,7 +5,7 @@ var app = angular.module('app', []);
 app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
-    template:'<div>KEEP SHOWING THE SPLASH SCREEN</div>',
+    template:'<div>Loading...</div>',
     controller: 'initCtrl'
   })
   .when('/one', {
