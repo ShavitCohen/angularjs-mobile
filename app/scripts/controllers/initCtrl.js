@@ -7,7 +7,7 @@ app.controller('initCtrl', function($scope, $rootScope, $location,deviceService)
   //we save this variable in the rootScope in order to use
   $rootScope.isDevice = $scope.deviceService.isDevice();
   var promise = $scope.deviceService.whenDeviceReady();
-    promise.then(function(afadsdf){
+    promise.then(function(){
       //******************************
       //****** Initialization*********
       //******************************

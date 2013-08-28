@@ -23,15 +23,19 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
-
 			 if($rootScope.isDevice){
 				 document.addEventListener("deviceready", function () {
 				 	$rootScope.$apply(function(){
-				 		deferred.resolve("aa");	
+				 		deferred.resolve();	
 				 	});
 				 },false)
 				}else{
-					deferred.resolve("aa");	
+					setTimeout(function(){
+						$rootScope.$apply(function(){
+				 			deferred.resolve();	
+				 		});	
+					},1000)
+						
  				}
 				return deferred.promise;
 		},
@@ -99,7 +103,7 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 	           }else{
 	           		deferred.resolve("en");
 	           }
-	           
+
               return deferred.promise;
 		} 
 
