@@ -21,9 +21,14 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 		    }
 		},
 
+		/**
+		 * 
+		 * @return {[angular promis]} [description]
+		 */
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
 			 if($rootScope.isDevice){
+			 	alert("sss");
 			 	 document.addEventListener("deviceready", function(){
       				alert("123");
  				},true);
