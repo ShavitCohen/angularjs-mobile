@@ -16,19 +16,9 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 
-          <script>
-     function onBodyLoad() {   
-         document.addEventListener("deviceready", function () {
-            document.getElementsByTagName("body")[0].setAttribute("device","ready");
-            alert("0");
-        }
-      }
-       
-       
-    </script>
 
 </head>
-  <body ng-app="app" noload="onBodyLoad()">
+  <body ng-app="app">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -48,7 +38,14 @@
     <script src="scripts/libs/jquery.js"></script>
     <script src="scripts/libs/angular.1.1.4.min.js"></script>
 
-  
+      <script>
+          angular.element(document).ready(function () {
+            document.addEventListener("deviceready", function(){
+                $("body").attr("device","ready");
+                alert("aaaa");
+            }, false);
+            });
+      </script>
 
         <!-- build:js scripts/modules.js -->
         
