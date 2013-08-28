@@ -24,14 +24,17 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
 			 if($rootScope.isDevice){
-				/* document.addEventListener("deviceready", function () {
-				 	$rootScope.$apply(function(){*/
-				 		deferred.resolve();	
-				 /*	});
-				 },false)*/
+				var checkDeviceReadyInterval = setInterval(function(){
+					if($("html").attr("deviceReady") == "true"){
+						window.clearInterval(checkDeviceReadyInterval);
+						$rootScope.apply(function(){
+							deferred.resolve();	
+						})
+					}
+		 		}, 200)
 			}else{
-			 	deferred.resolve();		
-			}  
+				deferred.resolve();	
+			}
 			return deferred.promise;
 		},
 

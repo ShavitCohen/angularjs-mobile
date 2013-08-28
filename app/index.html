@@ -37,6 +37,14 @@
     <script src="scripts/libs/jquery.js"></script>
     <script src="scripts/libs/angular.1.1.4.min.js"></script>
 
+    <script>
+    $(function(){
+        document.addEventListener("deviceready", function () {
+            $("html").attr("deviceReady","true");
+        });
+    });
+       
+    </script>
 
         <!-- build:js scripts/modules.js -->
         
