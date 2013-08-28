@@ -91,15 +91,15 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 
 
 
-
+		/**
+		 * Enable using client language
+		 * @return {angular promise} [description]
+		 */
 		getClientLang: function(){
 			var deferred = $q.defer();
 			if($rootScope.isDevice){
 				  navigator.globalization.getPreferredLanguage(function (lang) {
 				  	$rootScope.$apply(function(){
-				  		for (i in lang){
-				  			console.log(i);
-				  		}
 				  		deferred.resolve(lang.value);
 				  	});
 				  });
