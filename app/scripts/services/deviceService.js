@@ -24,18 +24,16 @@ app.factory('deviceService', function ($q, $rootScope,$timeout) {
 		whenDeviceReady: function(){
 			 var deferred = $q.defer();
 			 if($rootScope.isDevice){
+			 	alert("0");
 				 document.addEventListener("deviceready", function () {
+				 	alert("1");
 				 	$rootScope.$apply(function(){
+				 		alert("3");
 				 		deferred.resolve();	
 				 	});
 				 },false)
 				}else{
-					setTimeout(function(){
-						$rootScope.$apply(function(){
-				 			deferred.resolve();	
-				 		});	
-					},1000)
-						
+				 	deferred.resolve();		
  				}
 				return deferred.promise;
 		},
