@@ -1,7 +1,7 @@
 angularjs-mobile
 ================
 
-A nice boilerplate for starting a [PhoneGap](phonegap.com) application that meant to be compiled via [PhoneGap Build](https://build.phonegap.com/docs/app-building) using [AngularJS](http://angularjs.org/) with routing and anice animation between different views.
+A boilerplate for starting a [PhoneGap](phonegap.com) application that meant to be compiled via [PhoneGap Build](https://build.phonegap.com/docs/app-building) using [AngularJS](http://angularjs.org/) with routing and anice animation between different views.
 In this project there is a use of [jQuery Mobile CSS 1.3.2](http://jquerymobile.com/download/) only.
 
 I used [angular-phonegap-seed](https://github.com/thewildpendulum/angular-phonegap-seed) for the resources library that holds the different images required for icons and splash screens.
@@ -14,12 +14,12 @@ The project includes a service and a directive:
 #Device service
 A service that had some device related logic, like glottalization and geolocation
 
-#Button directive
+#Directives
 Since this project use only jQuery Mobile CSS file and not the logic of it, we gain the look of jQuery Mobile by placing the exact markup (after jQuery Mobile would render the markup). 
 there is a directive meant render each tag with the "mobile-button" attribute to a jQuery Mobile button markup. it has further attributes required (documented in the directive file)
 
-
-This project also includes a service for wrapping calls to Cordova APIs as presented by Brian Ford in [this awesome blog post](http://briantford.com/blog/angular-phonegap.html).
+#Animations
+This project includes an approach for using ng-animate for transition between views. this approach was taken from [a great post of Julien Bouquillon](http://blog.revolunet.com/blog/2013/04/30/angularjs-animations-mobile-applications/)
 
 ## Install
 
